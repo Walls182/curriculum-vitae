@@ -216,26 +216,24 @@ if (particlesContainer) {
 }
 
 /* ════════════════════════════════════════════════
-   8. FORMULARIO DE CONTACTO
+   8. FORMULARIO DE CONTACTO (Formspree)
+   El form tiene action/method nativos → Formspree
+   maneja el envío. Solo validamos antes de submitir.
    ════════════════════════════════════════════════ */
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', e => {
-    e.preventDefault();
     const nombre  = document.getElementById('nombre').value.trim();
     const email   = document.getElementById('email').value.trim();
     const mensaje = document.getElementById('mensaje').value.trim();
 
     if (!nombre || !email || !mensaje) {
+      e.preventDefault();
       showToast('⚠️ Por favor completa todos los campos', 'warn');
       return;
     }
-
-    const subject = encodeURIComponent(`Mensaje desde tu portafolio – ${nombre}`);
-    const body    = encodeURIComponent(`Hola,\n\nMi nombre es ${nombre}.\n\n${mensaje}\n\n---\nRespóndeme a: ${email}`);
-    window.open(`mailto:wasc0144@gmail.com?subject=${subject}&body=${body}`, '_blank');
-    showToast('🐱 ¡Listo! Abriendo tu cliente de correo…', 'success');
-    contactForm.reset();
+    // Si los campos están OK, el form se envía nativamente a Formspree
+    showToast('🐱 Enviando mensaje…', 'success');
   });
 }
 

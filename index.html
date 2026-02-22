@@ -487,7 +487,9 @@
             </div>
           </div>
         </div>
-        <form class="contact-form reveal" id="contact-form">
+        <form class="contact-form reveal" id="contact-form"
+              action="https://formspree.io/f/xwvnrdan"
+              method="POST">
           <div class="form-group">
             <label for="nombre">// NOMBRE</label>
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required />
@@ -500,12 +502,14 @@
             <label for="mensaje">// MENSAJE</label>
             <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe tu proyecto o propuesta..." required></textarea>
           </div>
+          <!-- Redirige de vuelta al portfolio tras enviar -->
+          <input type="hidden" name="_next" value="https://walls182.github.io/curriculum-vitae/?sent=1" />
+          <input type="hidden" name="_subject" value="💼 Nuevo mensaje desde el portfolio" />
           <button type="submit" class="btn btn-primary btn-full">
             <span>[ ENVIAR MENSAJE 🐱 ]</span>
           </button>
           <div class="form-notice">
-            💡 Abre tu cliente de correo a <strong>wasc0144@gmail.com</strong>. Para backend sin servidor usa
-            <a href="https://formspree.io" target="_blank">Formspree</a>.
+            ✅ Los mensajes llegan directamente a <strong>wasc0144@gmail.com</strong> vía Formspree.
           </div>
         </form>
       </div>
