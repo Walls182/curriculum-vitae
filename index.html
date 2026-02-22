@@ -3,64 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Hoja de Vida | Dev Portfolio</title>
+  <title>AI/ML Engineer | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Fuentes: Press Start 2P (pixel), Fira Code, Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--         CURSOR PERSONALIZADO           -->
-  <!-- ╚══════════════════════════════════════╝ -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--              NAVEGACIÓN                -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ NAVBAR ░░░░░░░░░░░░ -->
   <nav id="navbar">
     <div class="nav-logo">
       <span class="cat-emoji">🐱</span>
-      <span class="logo-text">&lt;DevCat /&gt;</span>
+      <span>&lt;AI_CAT /&gt;</span>
     </div>
     <ul class="nav-links">
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#habilidades">Skills</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#educacion">Educación</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#sobre-mi">about()</a></li>
+      <li><a href="#habilidades">skills[]</a></li>
+      <li><a href="#experiencia">work{}</a></li>
+      <li><a href="#educacion">edu[]</a></li>
+      <li><a href="#proyectos">projects()</a></li>
+      <li><a href="#contacto">contact()</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--               HERO                     -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ HERO ░░░░░░░░░░░░ -->
   <section id="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <p class="hero-greeting">Hola, soy</p>
+        <p class="hero-greeting">INITIALIZING PORTFOLIO...</p>
         <h1 class="hero-name" id="hero-name">Tu Nombre</h1>
         <div class="hero-title">
-          <span class="title-prefix">&gt; </span>
+          <span class="title-prefix">$ </span>
           <span id="typed-text"></span>
-          <span class="cursor-blink">|</span>
+          <span class="cursor-blink">█</span>
         </div>
         <p class="hero-description">
-          Apasionado por crear experiencias digitales únicas.<br/>
-          Con un café ☕ y mi gato a lado, construyo el futuro.
+          Construyo modelos que aprenden, sistemas que piensan<br/>
+          y soluciones que escalan. <em>Supervisado por mi gato 🐾</em>
         </p>
         <div class="hero-buttons">
-          <a href="#contacto" class="btn btn-primary">Contáctame</a>
-          <a href="#proyectos" class="btn btn-secondary">Ver proyectos</a>
+          <a href="#contacto" class="btn btn-primary">[ CONTACTAR ]</a>
+          <a href="#proyectos" class="btn btn-secondary">[ PROYECTOS ]</a>
         </div>
         <div class="hero-socials">
-          <a href="https://github.com/tu-usuario" target="_blank" class="social-link" title="GitHub">
+          <a href="https://github.com/Walls182" target="_blank" class="social-link" title="GitHub">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>
           <a href="https://linkedin.com/in/tu-usuario" target="_blank" class="social-link" title="LinkedIn">
@@ -69,59 +63,65 @@
           <a href="mailto:tu@email.com" class="social-link" title="Email">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </a>
+          <a href="https://huggingface.co/tu-usuario" target="_blank" class="social-link" title="Hugging Face">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm0 2a9 9 0 1 1 0 18A9 9 0 0 1 12 3zm-2.5 5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.5 5c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5z"/></svg>
+          </a>
         </div>
       </div>
       <div class="hero-visual">
-        <canvas id="cat-canvas" width="400" height="400"></canvas>
+        <canvas id="cat-canvas" width="360" height="360"></canvas>
         <div class="code-badge">
           <span class="badge-dot"></span>
-          <span>Disponible para trabajar</span>
+          <span>OPEN TO WORK</span>
         </div>
       </div>
     </div>
     <div class="scroll-indicator">
-      <span>Scroll</span>
+      <span>SCROLL</span>
       <div class="scroll-arrow"></div>
     </div>
     <div class="particles" id="particles"></div>
   </section>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--             SOBRE MÍ                   -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ SOBRE MÍ ░░░░░░░░░░░░ -->
   <section id="sobre-mi" class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 01</span>
-        <h2 class="section-title">Sobre Mí</h2>
+        <span class="section-tag">// 01_ABOUT</span>
+        <h2 class="section-title">SOBRE MÍ</h2>
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
           <p>
-            Soy un <strong>desarrollador apasionado</strong> con experiencia en construir
-            aplicaciones web modernas y escalables. Mi camino en la tecnología comenzó
-            hace varios años y desde entonces no he parado de aprender.
+            Soy un <strong>AI/ML Engineer</strong> apasionado por construir sistemas inteligentes
+            que resuelven problemas reales. Me especializo en el ciclo completo del ML:
+            desde la recolección y limpieza de datos hasta el despliegue de modelos en producción.
           </p>
           <p>
-            Cuando no estoy programando, me encuentras leyendo sobre nuevas tecnologías,
-            tomando café ☕ o conviviendo con mi gato que insiste en caminar sobre el teclado 🐾.
+            Trabajo con <strong>modelos de lenguaje (LLMs)</strong>, visión por computadora,
+            series de tiempo y sistemas de recomendación. Cuando no estoy entrenando modelos,
+            estoy leyendo papers o mi gato está caminando sobre el teclado 🐾
+          </p>
+          <p>
+            Creo firmemente que la IA debe ser <strong>explicable, ética y accesible</strong>.
+            Cada línea de código que escribo tiene ese propósito.
           </p>
           <div class="about-stats">
             <div class="stat-card">
               <span class="stat-number" data-target="3">0</span>
-              <span class="stat-label">Años de experiencia</span>
+              <span class="stat-label">años en ML/AI</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number" data-target="20">0</span>
-              <span class="stat-label">Proyectos completados</span>
+              <span class="stat-number" data-target="30">0</span>
+              <span class="stat-label">modelos entrenados</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number" data-target="10">0</span>
-              <span class="stat-label">Tecnologías dominadas</span>
+              <span class="stat-number" data-target="15">0</span>
+              <span class="stat-label">proyectos deploy</span>
             </div>
             <div class="stat-card">
               <span class="stat-number" data-target="1">0</span>
-              <span class="stat-label">Gato supervisor 😸</span>
+              <span class="stat-label">gato supervisor 😸</span>
             </div>
           </div>
         </div>
@@ -132,12 +132,12 @@
             </div>
             <div class="profile-info">
               <h3>Tu Nombre</h3>
-              <p>Full Stack Developer</p>
+              <p>AI/ML Engineer</p>
               <div class="profile-tags">
-                <span class="tag">React</span>
-                <span class="tag">Node.js</span>
+                <span class="tag">PyTorch</span>
                 <span class="tag">Python</span>
-                <span class="tag">TypeScript</span>
+                <span class="tag">LLMs</span>
+                <span class="tag">MLOps</span>
               </div>
             </div>
           </div>
@@ -146,209 +146,296 @@
     </div>
   </section>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--            HABILIDADES                 -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ HABILIDADES ░░░░░░░░░░░░ -->
   <section id="habilidades" class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 02</span>
-        <h2 class="section-title">Habilidades</h2>
+        <span class="section-tag">// 02_SKILLS</span>
+        <h2 class="section-title">HABILIDADES</h2>
       </div>
       <div class="skills-grid">
+
         <div class="skill-category reveal">
-          <h3 class="skill-category-title">
-            <span class="skill-icon">🌐</span> Frontend
-          </h3>
+          <h3 class="skill-category-title"><span class="skill-icon">🧠</span> ML / Deep Learning</h3>
           <div class="skill-items">
-            <div class="skill-item" data-skill="HTML/CSS" data-level="95">
-              <div class="skill-info"><span>HTML / CSS</span><span>95%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            <div class="skill-item">
+              <div class="skill-info"><span>PyTorch / TensorFlow</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
             </div>
-            <div class="skill-item" data-skill="JavaScript" data-level="88">
-              <div class="skill-info"><span>JavaScript</span><span>88%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Scikit-learn</span><span>92%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
             </div>
-            <div class="skill-item" data-skill="React" data-level="82">
-              <div class="skill-info"><span>React</span><span>82%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Transformers / HuggingFace</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
             </div>
-            <div class="skill-item" data-skill="TypeScript" data-level="75">
-              <div class="skill-info"><span>TypeScript</span><span>75%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-category reveal">
-          <h3 class="skill-category-title">
-            <span class="skill-icon">⚙️</span> Backend
-          </h3>
-          <div class="skill-items">
-            <div class="skill-item" data-skill="Node.js" data-level="80">
-              <div class="skill-info"><span>Node.js</span><span>80%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-            </div>
-            <div class="skill-item" data-skill="Python" data-level="78">
-              <div class="skill-info"><span>Python</span><span>78%</span></div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Computer Vision (OpenCV)</span><span>78%</span></div>
               <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
             </div>
-            <div class="skill-item" data-skill="SQL" data-level="72">
-              <div class="skill-info"><span>SQL / MongoDB</span><span>72%</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title"><span class="skill-icon">📊</span> Data Science</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>Python (pandas, numpy)</span><span>95%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>SQL / NoSQL</span><span>82%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Data Viz (Matplotlib, Plotly)</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Feature Engineering</span><span>83%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="83"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title"><span class="skill-icon">⚙️</span> MLOps & Backend</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>FastAPI / Flask</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Docker / Kubernetes</span><span>70%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>MLflow / DVC</span><span>72%</span></div>
               <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
             </div>
-            <div class="skill-item" data-skill="Docker" data-level="60">
-              <div class="skill-info"><span>Docker / Git</span><span>60%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+            <div class="skill-item">
+              <div class="skill-info"><span>AWS SageMaker / GCP Vertex</span><span>65%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
             </div>
           </div>
         </div>
+
         <div class="skill-category reveal">
-          <h3 class="skill-category-title">
-            <span class="skill-icon">🛠️</span> Herramientas
-          </h3>
-          <div class="tools-grid">
-            <div class="tool-badge">VS Code</div>
-            <div class="tool-badge">GitHub</div>
-            <div class="tool-badge">Figma</div>
-            <div class="tool-badge">Postman</div>
-            <div class="tool-badge">Linux</div>
-            <div class="tool-badge">AWS</div>
-            <div class="tool-badge">Vercel</div>
-            <div class="tool-badge">Jest</div>
+          <h3 class="skill-category-title"><span class="skill-icon">🤖</span> LLMs & GenAI</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span>LangChain / LlamaIndex</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Prompt Engineering</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>RAG / Fine-tuning</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>OpenAI / Ollama / HuggingFace</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
           </div>
         </div>
+
+        <!-- Stack completo -->
+        <div class="skill-category reveal" style="grid-column: 1 / -1;">
+          <h3 class="skill-category-title"><span class="skill-icon">🛠️</span> Tech Stack Completo</h3>
+          <div class="tools-grid">
+            <div class="tool-badge">Python</div>
+            <div class="tool-badge">PyTorch</div>
+            <div class="tool-badge">TensorFlow</div>
+            <div class="tool-badge">HuggingFace</div>
+            <div class="tool-badge">LangChain</div>
+            <div class="tool-badge">scikit-learn</div>
+            <div class="tool-badge">FastAPI</div>
+            <div class="tool-badge">Docker</div>
+            <div class="tool-badge">Kubernetes</div>
+            <div class="tool-badge">MLflow</div>
+            <div class="tool-badge">Spark</div>
+            <div class="tool-badge">PostgreSQL</div>
+            <div class="tool-badge">Redis</div>
+            <div class="tool-badge">AWS</div>
+            <div class="tool-badge">GCP</div>
+            <div class="tool-badge">GitHub Actions</div>
+            <div class="tool-badge">Weights&Biases</div>
+            <div class="tool-badge">Jupyter</div>
+            <div class="tool-badge">ONNX</div>
+            <div class="tool-badge">Triton</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--            EXPERIENCIA                 -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ EXPERIENCIA ░░░░░░░░░░░░ -->
   <section id="experiencia" class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 03</span>
-        <h2 class="section-title">Experiencia</h2>
+        <span class="section-tag">// 03_WORK</span>
+        <h2 class="section-title">EXPERIENCIA</h2>
       </div>
       <div class="timeline">
+
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3>Desarrollador Full Stack</h3>
-              <span class="timeline-company">🏢 Empresa Increíble S.A.S</span>
+              <h3>ML Engineer Sr.</h3>
+              <span class="timeline-company">🏢 TechCorp AI</span>
             </div>
-            <span class="timeline-date">2023 – Presente</span>
+            <span class="timeline-date">2023 – PRESENTE</span>
             <ul class="timeline-list">
-              <li>Desarrollé y mantuve aplicaciones web con React y Node.js.</li>
-              <li>Implementé microservicios con Docker y despliegue en AWS.</li>
-              <li>Reduje el tiempo de carga en un 40% mediante optimizaciones.</li>
-              <li>Lideré equipo de 3 desarrolladores en sprints ágiles.</li>
+              <li>Diseño y entrenamiento de modelos LLM para procesamiento de documentos (precisión 94%).</li>
+              <li>Pipeline MLOps con MLflow, DVC y despliegue en AWS SageMaker.</li>
+              <li>Reducción del costo de inferencia un 38% con cuantización ONNX + TensorRT.</li>
+              <li>Sistema RAG con LangChain + Chroma para búsqueda semántica sobre 1M+ documentos.</li>
+              <li>Lideré equipo de 4 ML engineers en metodología Scrum.</li>
             </ul>
             <div class="timeline-tags">
-              <span class="tag">React</span><span class="tag">Node.js</span>
-              <span class="tag">Docker</span><span class="tag">AWS</span>
+              <span class="tag">PyTorch</span><span class="tag">LangChain</span>
+              <span class="tag">AWS</span><span class="tag">MLflow</span><span class="tag">FastAPI</span>
             </div>
           </div>
         </div>
+
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3>Desarrollador Frontend Jr.</h3>
-              <span class="timeline-company">🚀 Startup Tech</span>
+              <h3>Data Scientist</h3>
+              <span class="timeline-company">📈 DataVision Labs</span>
             </div>
             <span class="timeline-date">2022 – 2023</span>
             <ul class="timeline-list">
-              <li>Construí interfaces responsivas con HTML, CSS y JavaScript.</li>
-              <li>Integré APIs REST en el frontend de la plataforma principal.</li>
-              <li>Participé en el diseño UI/UX con Figma.</li>
+              <li>Modelo de predicción de churn con XGBoost (AUC 0.91), reduciendo bajas en 22%.</li>
+              <li>Sistema de recomendación híbrido (colaborativo + contenido) para plataforma SaaS.</li>
+              <li>Automatización de reportes con Python + Airflow ahorrando 40h/semana.</li>
+              <li>Dashboard de analytics en tiempo real con Plotly Dash + Redis.</li>
             </ul>
             <div class="timeline-tags">
-              <span class="tag">HTML/CSS</span><span class="tag">JavaScript</span>
-              <span class="tag">Figma</span>
+              <span class="tag">XGBoost</span><span class="tag">scikit-learn</span>
+              <span class="tag">Airflow</span><span class="tag">Plotly</span>
             </div>
           </div>
         </div>
+
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3>Practicante de Desarrollo</h3>
-              <span class="timeline-company">💡 Agencia Digital</span>
+              <h3>Junior ML Engineer</h3>
+              <span class="timeline-company">🔬 NLP Startup</span>
             </div>
             <span class="timeline-date">2021 – 2022</span>
             <ul class="timeline-list">
-              <li>Apoyo en el desarrollo de páginas web para clientes.</li>
-              <li>Mantenimiento de bases de datos MySQL.</li>
-              <li>Documentación técnica de proyectos.</li>
+              <li>Fine-tuning de BERT para clasificación de texto en español (F1: 0.89).</li>
+              <li>API de NLP con FastAPI para análisis de sentimientos en tiempo real.</li>
+              <li>Experimentación con Weights & Biases: 200+ runs de hyperparameter tuning.</li>
             </ul>
             <div class="timeline-tags">
-              <span class="tag">WordPress</span><span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
+              <span class="tag">BERT</span><span class="tag">FastAPI</span>
+              <span class="tag">W&B</span><span class="tag">HuggingFace</span>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--             EDUCACIÓN                  -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ EDUCACIÓN ░░░░░░░░░░░░ -->
   <section id="educacion" class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 04</span>
-        <h2 class="section-title">Educación</h2>
+        <span class="section-tag">// 04_EDUCATION</span>
+        <h2 class="section-title">EDUCACIÓN</h2>
       </div>
       <div class="edu-grid">
         <div class="edu-card reveal">
           <div class="edu-icon">🎓</div>
           <div class="edu-info">
             <h3>Ingeniería de Sistemas</h3>
-            <p class="edu-place">Universidad Nacional</p>
+            <p class="edu-place">Universidad Nacional de Colombia</p>
             <span class="edu-date">2018 – 2023</span>
-            <p class="edu-desc">Grado con honores. Énfasis en desarrollo de software y sistemas distribuidos.</p>
+            <p class="edu-desc">Énfasis en Inteligencia Artificial y Ciencia de Datos. Tesis: "Detección de anomalías en redes usando Autoencoders" — calificación 4.9/5.0.</p>
           </div>
         </div>
         <div class="edu-card reveal">
-          <div class="edu-icon">📜</div>
+          <div class="edu-icon">🤖</div>
           <div class="edu-info">
-            <h3>Full Stack Web Development</h3>
-            <p class="edu-place">Platzi / Udemy</p>
-            <span class="edu-date">2021 – 2022</span>
-            <p class="edu-desc">Certificaciones en React, Node.js, bases de datos y metodologías ágiles.</p>
+            <h3>Deep Learning Specialization</h3>
+            <p class="edu-place">DeepLearning.AI — Coursera</p>
+            <span class="edu-date">2022</span>
+            <p class="edu-desc">5 cursos: Neural Networks, CNNs, RNNs, Structuring ML Projects, Sequence Models. Instructed by Andrew Ng.</p>
           </div>
         </div>
         <div class="edu-card reveal">
           <div class="edu-icon">☁️</div>
           <div class="edu-info">
-            <h3>AWS Cloud Practitioner</h3>
+            <h3>AWS Machine Learning Specialty</h3>
             <p class="edu-place">Amazon Web Services</p>
             <span class="edu-date">2023</span>
-            <p class="edu-desc">Certificación oficial en servicios de nube de Amazon.</p>
+            <p class="edu-desc">Certificación oficial AWS-MLS-C01. SageMaker, Rekognition, Comprehend, Forecast y arquitecturas MLOps en nube.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-icon">📚</div>
+          <div class="edu-info">
+            <h3>CS229 — Machine Learning</h3>
+            <p class="edu-place">Stanford Online</p>
+            <span class="edu-date">2021</span>
+            <p class="edu-desc">Fundamentos matemáticos de ML: regresión, SVM, árboles, clustering, PCA y redes neuronales desde scratch.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--             PROYECTOS                  -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ PROYECTOS ░░░░░░░░░░░░ -->
   <section id="proyectos" class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 05</span>
-        <h2 class="section-title">Proyectos</h2>
+        <span class="section-tag">// 05_PROJECTS</span>
+        <h2 class="section-title">PROYECTOS</h2>
       </div>
       <div class="projects-grid">
+
+        <div class="project-card featured reveal">
+          <div class="project-featured-label">⭐ FEATURED</div>
+          <div class="project-top">
+            <span class="project-folder">📁</span>
+            <div class="project-links">
+              <a href="https://github.com/Walls182" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="#" target="_blank" title="Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">DocuMind RAG System</h3>
+          <p class="project-desc">
+            Sistema RAG (Retrieval-Augmented Generation) que permite hacer preguntas en lenguaje natural
+            sobre documentos PDF. Usa embeddings con Sentence-BERT, almacenamiento vectorial con Chroma
+            y generación con LLaMA-3. Latencia &lt;800ms en producción.
+          </p>
+          <div class="project-tech">
+            <span>LangChain</span><span>LLaMA-3</span><span>Chroma</span><span>FastAPI</span>
+          </div>
+        </div>
+
         <div class="project-card reveal">
           <div class="project-top">
             <span class="project-folder">📁</span>
             <div class="project-links">
-              <a href="#" target="_blank" title="GitHub">
+              <a href="https://github.com/Walls182" target="_blank" title="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
               </a>
               <a href="#" target="_blank" title="Demo">
@@ -356,77 +443,54 @@
               </a>
             </div>
           </div>
-          <h3 class="project-title">CatTask Manager</h3>
+          <h3 class="project-title">CatVision — Object Detection</h3>
           <p class="project-desc">
-            Aplicación de gestión de tareas con interfaz moderna y notificaciones
-            en tiempo real. Incluye autenticación, tableros Kanban y reportes.
+            Detector de objetos en tiempo real basado en YOLOv8 fine-tuned para escenas domésticas.
+            Entrenado con dataset personalizado de 15k imágenes. mAP@50: 0.87.
+            Interfaz web con Gradio + backend FastAPI.
           </p>
           <div class="project-tech">
-            <span>React</span><span>Node.js</span><span>MongoDB</span>
+            <span>YOLOv8</span><span>PyTorch</span><span>Gradio</span><span>OpenCV</span>
           </div>
         </div>
-        <div class="project-card reveal featured">
-          <div class="project-featured-label">⭐ Destacado</div>
-          <div class="project-top">
-            <span class="project-folder">📁</span>
-            <div class="project-links">
-              <a href="#" target="_blank" title="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-              <a href="#" target="_blank" title="Demo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">E-Commerce Platform</h3>
-          <p class="project-desc">
-            Plataforma de comercio electrónico completa con carrito, pagos con Stripe,
-            panel de administración y analytics en tiempo real.
-          </p>
-          <div class="project-tech">
-            <span>Next.js</span><span>TypeScript</span><span>Stripe</span><span>PostgreSQL</span>
-          </div>
-        </div>
+
         <div class="project-card reveal">
           <div class="project-top">
             <span class="project-folder">📁</span>
             <div class="project-links">
-              <a href="#" target="_blank" title="GitHub">
+              <a href="https://github.com/Walls182" target="_blank" title="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-              <a href="#" target="_blank" title="Demo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
           </div>
-          <h3 class="project-title">API Weather Bot</h3>
+          <h3 class="project-title">TimeSeries Forecaster</h3>
           <p class="project-desc">
-            Bot de Telegram que usa ML para predecir el clima con datos de OpenWeather.
-            Envía alertas personalizadas según las preferencias del usuario.
+            Plataforma de forecasting de series de tiempo que combina modelos clásicos (Prophet, ARIMA)
+            con redes neuronales (Temporal Fusion Transformer). Dashboard interactivo con Plotly.
+            Usado en producción para predicción de demanda.
           </p>
           <div class="project-tech">
-            <span>Python</span><span>TensorFlow</span><span>Telegram API</span>
+            <span>TFT</span><span>Prophet</span><span>Plotly</span><span>PostgreSQL</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--              CONTACTO                  -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ CONTACTO ░░░░░░░░░░░░ -->
   <section id="contacto" class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">// 06</span>
-        <h2 class="section-title">Contacto</h2>
+        <span class="section-tag">// 06_CONTACT</span>
+        <h2 class="section-title">CONTACTO</h2>
       </div>
       <div class="contact-grid">
         <div class="contact-text reveal">
-          <h3>¡Hablemos!</h3>
+          <h3>INICIAR CONEXIÓN</h3>
           <p>
-            Estoy abierto a nuevas oportunidades, colaboraciones y proyectos
-            interesantes. Mi gato y yo estamos disponibles 🐾
+            ¿Tienes un proyecto de IA que resolver? ¿Buscas un ML engineer para tu equipo?
+            Mi gato y yo estamos listos para colaborar 🐾
           </p>
           <div class="contact-info">
             <div class="contact-item">
@@ -435,7 +499,11 @@
             </div>
             <div class="contact-item">
               <span class="contact-icon">📍</span>
-              <span>Colombia 🇨🇴</span>
+              <span>Colombia 🇨🇴 · Remote friendly</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🤗</span>
+              <a href="https://huggingface.co/tu-usuario" target="_blank">HuggingFace</a>
             </div>
             <div class="contact-item">
               <span class="contact-icon">💼</span>
@@ -445,43 +513,42 @@
         </div>
         <form class="contact-form reveal" id="contact-form">
           <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            <label for="nombre">// NOMBRE</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required />
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">// EMAIL</label>
             <input type="email" id="email" name="email" placeholder="tu@email.com" required />
           </div>
           <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="5" placeholder="¡Cuéntame sobre tu proyecto!" required></textarea>
+            <label for="mensaje">// MENSAJE</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe tu proyecto o propuesta..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-full">
-            <span>Enviar mensaje 🐱</span>
+            <span>[ ENVIAR MENSAJE 🐱 ]</span>
           </button>
           <div class="form-notice">
-            💡 Este formulario abre tu cliente de correo. Para una versión con backend, considera usar <a href="https://formspree.io" target="_blank">Formspree</a>.
+            💡 Abre tu cliente de correo. Para backend sin servidor usa
+            <a href="https://formspree.io" target="_blank">Formspree</a>.
           </div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ╔══════════════════════════════════════╗ -->
-  <!--               FOOTER                   -->
-  <!-- ╚══════════════════════════════════════╝ -->
+  <!-- ░░░░░░░░░░░░ FOOTER ░░░░░░░░░░░░ -->
   <footer>
     <div class="footer-cat">
-      <canvas id="cat-footer" width="120" height="80"></canvas>
+      <canvas id="cat-footer" width="140" height="90"></canvas>
     </div>
-    <p>Diseñado y desarrollado con ❤️ y ☕ por <strong>Tu Nombre</strong></p>
-    <p class="footer-sub">🐾 Con supervisión felina garantizada 🐾</p>
-    <p class="footer-copy">&copy; 2026 – Hecho con HTML, CSS y mucho JavaScript</p>
+    <p>Diseñado con <span style="color:#ff6eb4">♥</span> y <span style="color:#facc15">☕</span> por <strong>Tu Nombre</strong></p>
+    <p class="footer-sub">🐾 Con supervisión felina garantizada · AI/ML Portfolio 2026</p>
+    <p class="footer-copy">// BUILT WITH HTML · CSS · VANILLA JS · PIXEL ART · NO FRAMEWORKS</p>
   </footer>
 
-  <!-- CAT WALKING OVERLAY (sigue el scroll) -->
+  <!-- Gato caminante overlay -->
   <div id="walking-cat" class="walking-cat">
-    <canvas id="cat-walk" width="100" height="80"></canvas>
+    <canvas id="cat-walk" width="110" height="90"></canvas>
   </div>
 
   <script src="cat.js"></script>
