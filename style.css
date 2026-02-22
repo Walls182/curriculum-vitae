@@ -379,7 +379,24 @@ ul { list-style: none; }
   white-space: nowrap;
   box-shadow: 3px 3px 0 rgba(0,229,255,0.1);
   letter-spacing: 1px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+  user-select: none;
 }
+.code-badge:hover {
+  border-color: var(--cyan);
+  box-shadow: 3px 3px 0 var(--cyan);
+  transform: translateX(-50%) scale(1.06);
+  color: var(--cyan);
+}
+.code-badge:active { transform: translateX(-50%) scale(0.97); }
+.badge-hint {
+  font-size: 0.32rem;
+  color: var(--violet);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.code-badge:hover .badge-hint { opacity: 1; }
 .badge-dot {
   width: 6px; height: 6px;
   background: var(--green);

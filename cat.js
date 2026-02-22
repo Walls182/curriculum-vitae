@@ -665,4 +665,217 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
   }
+
+  /* ══════════════════════════════════════════════════
+     EASTER EGG 1 — LLUVIA DE GATOS
+     Clic en el badge "OPEN TO WORK"
+     ══════════════════════════════════════════════════ */
+  const badge = document.querySelector('.code-badge');
+  if (badge) {
+    badge.style.cursor = 'pointer';
+    badge.title = '🐱 ¡Haz clic!';
+    badge.addEventListener('click', () => spawnCatRain());
+  }
+
+  /* ══════════════════════════════════════════════════
+     EASTER EGG 2 — GATO EN COCHECITO
+     Botón flotante esquina inferior izquierda
+     ══════════════════════════════════════════════════ */
+  const cartBtn = document.createElement('button');
+  cartBtn.id        = 'cart-btn';
+  cartBtn.innerHTML = '🛒';
+  cartBtn.title     = 'Gato en cochecito 🐱';
+  cartBtn.style.cssText = `
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 9000;
+    width: 48px;
+    height: 48px;
+    background: #080c10;
+    border: 2px solid #00e5ff;
+    box-shadow: 3px 3px 0 #7c3aed;
+    color: #00e5ff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s;
+  `;
+  cartBtn.addEventListener('mouseenter', () => cartBtn.style.transform = 'scale(1.15)');
+  cartBtn.addEventListener('mouseleave', () => cartBtn.style.transform = 'scale(1)');
+  cartBtn.addEventListener('click', () => spawnCatCart());
+  document.body.appendChild(cartBtn);
+
 });
+
+/* ══════════════════════════════════════════════════
+   FUNCIÓN: LLUVIA DE GATOS
+   ══════════════════════════════════════════════════ */
+function spawnCatRain() {
+  const PX    = 3;
+  const COUNT = 14;
+  const DUR   = 4000; // ms que dura toda la lluvia
+
+  // Contenedor overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed; inset: 0; pointer-events: none;
+    z-index: 9999; overflow: hidden;
+  `;
+  document.body.appendChild(overlay);
+
+  const states = ['idle', 'jump', 'walk', 'sit', 'wave'];
+
+  for (let i = 0; i < COUNT; i++) {
+    const cvs = document.createElement('canvas');
+    cvs.width  = 16 * PX;
+    cvs.height = 16 * PX;
+    cvs.style.cssText = `
+      position: absolute;
+      image-rendering: pixelated;
+    `;
+
+    const cat = new Cat(cvs, {
+      px:    PX,
+      state: states[Math.floor(Math.random() * states.length)],
+      glow:  true,
+      flip:  Math.random() > 0.5,
+    });
+    cat.start();
+
+    overlay.appendChild(cvs);
+
+    // Posición y animación CSS
+    const startX  = Math.random() * (window.innerWidth - 60);
+    const delay   = Math.random() * 2200;
+    const fallDur = 1400 + Math.random() * 1200;
+    const spin    = (Math.random() > 0.5 ? '' : '-') + (Math.floor(Math.random() * 3) * 180);
+
+    cvs.style.left      = startX + 'px';
+    cvs.style.top       = '-60px';
+    cvs.style.transform = 'translateY(0) rotate(0deg)';
+    cvs.style.transition = `transform ${fallDur}ms cubic-bezier(.25,.46,.45,.94) ${delay}ms,
+                             opacity 300ms ease ${delay + fallDur - 300}ms`;
+    cvs.style.opacity   = '1';
+
+    // Disparar caída
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        cvs.style.transform = `translateY(${window.innerHeight + 80}px) rotate(${spin}deg)`;
+        cvs.style.opacity   = '0';
+      });
+    });
+  }
+
+  // Limpiar overlay
+  setTimeout(() => {
+    overlay.querySelectorAll('canvas').forEach(c => {
+      // detener cada cat — buscamos la instancia por propiedad interna
+      const ctx = c.getContext('2d');
+      if (ctx) ctx.clearRect(0, 0, c.width, c.height);
+    });
+    overlay.remove();
+  }, DUR + 600);
+}
+
+/* ══════════════════════════════════════════════════
+   FUNCIÓN: GATO EN COCHECITO
+   ══════════════════════════════════════════════════ */
+// Sprite del carrito: 24×12 (pixel art simple)
+const CART_SPRITE = [
+  '........................',
+  '........BBBBB...........',
+  '.......BYYYYBB..........',
+  '......BYYYYYBOB.........',
+  '.....BBYYYYYYY.B........',
+  '....BBBBBBBBBBB.........',
+  '....BWWWWWWWWWB.........',
+  '....BWWWWWWWWWB.........',
+  '.....BBBBBBBBB..........',
+  '....B.BBBBB.BB..........',
+  '...BDB.BBB.BDB..........',
+  '....BBB...BBB...........',
+];
+
+function drawCart(ctx, px, ox, oy) {
+  const palette = { B: '#0d0d0d', Y: '#facc15', W: '#7c3aed', D: '#484860', O: '#c8883a' };
+  CART_SPRITE.forEach((row, r) => {
+    for (let c = 0; c < row.length; c++) {
+      const ch = row[c];
+      if (ch === '.' || !palette[ch]) continue;
+      ctx.fillStyle = palette[ch];
+      ctx.fillRect(ox + c * px, oy + r * px, px, px);
+    }
+  });
+}
+
+function spawnCatCart() {
+  // Evitar duplicados
+  const existing = document.getElementById('cat-cart-overlay');
+  if (existing) return;
+
+  const PX      = 4;
+  const CAT_W   = 16 * PX;
+  const CAT_H   = 16 * PX;
+  const CART_W  = 24 * PX;
+  const CART_H  = 12 * PX;
+  const TOTAL_W = CAT_W + CART_W;
+  const TOTAL_H = Math.max(CAT_H, CART_H) + 10;
+
+  const wrapper = document.createElement('div');
+  wrapper.id    = 'cat-cart-overlay';
+  wrapper.style.cssText = `
+    position: fixed;
+    bottom: 3.5rem;
+    left: -${TOTAL_W + 20}px;
+    z-index: 9998;
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+    transition: none;
+  `;
+
+  // Canvas del gato
+  const catCvs  = document.createElement('canvas');
+  catCvs.width  = CAT_W;
+  catCvs.height = CAT_H;
+  catCvs.style.imageRendering = 'pixelated';
+
+  // Canvas del carrito
+  const cartCvs  = document.createElement('canvas');
+  cartCvs.width  = CART_W;
+  cartCvs.height = CART_H;
+  cartCvs.style.imageRendering = 'pixelated';
+  const cartCtx  = cartCvs.getContext('2d');
+  cartCtx.imageSmoothingEnabled = false;
+  drawCart(cartCtx, PX, 0, 0);
+
+  wrapper.appendChild(catCvs);
+  wrapper.appendChild(cartCvs);
+  document.body.appendChild(wrapper);
+
+  // Gato en modo sit dentro del carrito
+  const cartCat = new Cat(catCvs, { px: PX, state: 'sit', glow: true, flip: false });
+  cartCat.start();
+
+  // Animación: cruza la pantalla de izquierda a derecha
+  const totalDist = window.innerWidth + TOTAL_W + 60;
+  const speed     = 2.8; // px por frame
+  let posX        = -(TOTAL_W + 20);
+
+  function animCart() {
+    posX += speed;
+    wrapper.style.left = posX + 'px';
+
+    if (posX < window.innerWidth + TOTAL_W + 30) {
+      requestAnimationFrame(animCart);
+    } else {
+      cartCat.stop();
+      wrapper.remove();
+    }
+  }
+  requestAnimationFrame(animCart);
+}
