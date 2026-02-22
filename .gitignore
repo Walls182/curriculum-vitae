@@ -1,0 +1,28 @@
+# Dependencias de Node (si decides usar un bundler)
+node_modules/
+.npm/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build outputs (si agregas un build step)
+dist/
+build/

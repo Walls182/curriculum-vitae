@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Hoja de Vida | Dev Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--         CURSOR PERSONALIZADO           -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--              NAVEGACIÓN                -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="cat-emoji">🐱</span>
+      <span class="logo-text">&lt;DevCat /&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#habilidades">Skills</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#educacion">Educación</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--               HERO                     -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">Hola, soy</p>
+        <h1 class="hero-name" id="hero-name">Tu Nombre</h1>
+        <div class="hero-title">
+          <span class="title-prefix">&gt; </span>
+          <span id="typed-text"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+        <p class="hero-description">
+          Apasionado por crear experiencias digitales únicas.<br/>
+          Con un café ☕ y mi gato a lado, construyo el futuro.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contacto" class="btn btn-primary">Contáctame</a>
+          <a href="#proyectos" class="btn btn-secondary">Ver proyectos</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/tu-usuario" target="_blank" class="social-link" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/tu-usuario" target="_blank" class="social-link" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="mailto:tu@email.com" class="social-link" title="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <canvas id="cat-canvas" width="400" height="400"></canvas>
+        <div class="code-badge">
+          <span class="badge-dot"></span>
+          <span>Disponible para trabajar</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+    <div class="particles" id="particles"></div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--             SOBRE MÍ                   -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="sobre-mi" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 01</span>
+        <h2 class="section-title">Sobre Mí</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Soy un <strong>desarrollador apasionado</strong> con experiencia en construir
+            aplicaciones web modernas y escalables. Mi camino en la tecnología comenzó
+            hace varios años y desde entonces no he parado de aprender.
+          </p>
+          <p>
+            Cuando no estoy programando, me encuentras leyendo sobre nuevas tecnologías,
+            tomando café ☕ o conviviendo con mi gato que insiste en caminar sobre el teclado 🐾.
+          </p>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number" data-target="3">0</span>
+              <span class="stat-label">Años de experiencia</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="20">0</span>
+              <span class="stat-label">Proyectos completados</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="10">0</span>
+              <span class="stat-label">Tecnologías dominadas</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="1">0</span>
+              <span class="stat-label">Gato supervisor 😸</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image reveal reveal-right">
+          <div class="profile-card">
+            <div class="profile-avatar">
+              <canvas id="cat-mini" width="200" height="200"></canvas>
+            </div>
+            <div class="profile-info">
+              <h3>Tu Nombre</h3>
+              <p>Full Stack Developer</p>
+              <div class="profile-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Python</span>
+                <span class="tag">TypeScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--            HABILIDADES                 -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="habilidades" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 02</span>
+        <h2 class="section-title">Habilidades</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title">
+            <span class="skill-icon">🌐</span> Frontend
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item" data-skill="HTML/CSS" data-level="95">
+              <div class="skill-info"><span>HTML / CSS</span><span>95%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item" data-skill="JavaScript" data-level="88">
+              <div class="skill-info"><span>JavaScript</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item" data-skill="React" data-level="82">
+              <div class="skill-info"><span>React</span><span>82%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-item" data-skill="TypeScript" data-level="75">
+              <div class="skill-info"><span>TypeScript</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title">
+            <span class="skill-icon">⚙️</span> Backend
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item" data-skill="Node.js" data-level="80">
+              <div class="skill-info"><span>Node.js</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item" data-skill="Python" data-level="78">
+              <div class="skill-info"><span>Python</span><span>78%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+            <div class="skill-item" data-skill="SQL" data-level="72">
+              <div class="skill-info"><span>SQL / MongoDB</span><span>72%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+            </div>
+            <div class="skill-item" data-skill="Docker" data-level="60">
+              <div class="skill-info"><span>Docker / Git</span><span>60%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3 class="skill-category-title">
+            <span class="skill-icon">🛠️</span> Herramientas
+          </h3>
+          <div class="tools-grid">
+            <div class="tool-badge">VS Code</div>
+            <div class="tool-badge">GitHub</div>
+            <div class="tool-badge">Figma</div>
+            <div class="tool-badge">Postman</div>
+            <div class="tool-badge">Linux</div>
+            <div class="tool-badge">AWS</div>
+            <div class="tool-badge">Vercel</div>
+            <div class="tool-badge">Jest</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--            EXPERIENCIA                 -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="experiencia" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 03</span>
+        <h2 class="section-title">Experiencia</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Desarrollador Full Stack</h3>
+              <span class="timeline-company">🏢 Empresa Increíble S.A.S</span>
+            </div>
+            <span class="timeline-date">2023 – Presente</span>
+            <ul class="timeline-list">
+              <li>Desarrollé y mantuve aplicaciones web con React y Node.js.</li>
+              <li>Implementé microservicios con Docker y despliegue en AWS.</li>
+              <li>Reduje el tiempo de carga en un 40% mediante optimizaciones.</li>
+              <li>Lideré equipo de 3 desarrolladores en sprints ágiles.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag">React</span><span class="tag">Node.js</span>
+              <span class="tag">Docker</span><span class="tag">AWS</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Desarrollador Frontend Jr.</h3>
+              <span class="timeline-company">🚀 Startup Tech</span>
+            </div>
+            <span class="timeline-date">2022 – 2023</span>
+            <ul class="timeline-list">
+              <li>Construí interfaces responsivas con HTML, CSS y JavaScript.</li>
+              <li>Integré APIs REST en el frontend de la plataforma principal.</li>
+              <li>Participé en el diseño UI/UX con Figma.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag">HTML/CSS</span><span class="tag">JavaScript</span>
+              <span class="tag">Figma</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Practicante de Desarrollo</h3>
+              <span class="timeline-company">💡 Agencia Digital</span>
+            </div>
+            <span class="timeline-date">2021 – 2022</span>
+            <ul class="timeline-list">
+              <li>Apoyo en el desarrollo de páginas web para clientes.</li>
+              <li>Mantenimiento de bases de datos MySQL.</li>
+              <li>Documentación técnica de proyectos.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag">WordPress</span><span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--             EDUCACIÓN                  -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="educacion" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 04</span>
+        <h2 class="section-title">Educación</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-info">
+            <h3>Ingeniería de Sistemas</h3>
+            <p class="edu-place">Universidad Nacional</p>
+            <span class="edu-date">2018 – 2023</span>
+            <p class="edu-desc">Grado con honores. Énfasis en desarrollo de software y sistemas distribuidos.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-icon">📜</div>
+          <div class="edu-info">
+            <h3>Full Stack Web Development</h3>
+            <p class="edu-place">Platzi / Udemy</p>
+            <span class="edu-date">2021 – 2022</span>
+            <p class="edu-desc">Certificaciones en React, Node.js, bases de datos y metodologías ágiles.</p>
+          </div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-icon">☁️</div>
+          <div class="edu-info">
+            <h3>AWS Cloud Practitioner</h3>
+            <p class="edu-place">Amazon Web Services</p>
+            <span class="edu-date">2023</span>
+            <p class="edu-desc">Certificación oficial en servicios de nube de Amazon.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--             PROYECTOS                  -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 05</span>
+        <h2 class="section-title">Proyectos</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-folder">📁</span>
+            <div class="project-links">
+              <a href="#" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="#" target="_blank" title="Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">CatTask Manager</h3>
+          <p class="project-desc">
+            Aplicación de gestión de tareas con interfaz moderna y notificaciones
+            en tiempo real. Incluye autenticación, tableros Kanban y reportes.
+          </p>
+          <div class="project-tech">
+            <span>React</span><span>Node.js</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="project-card reveal featured">
+          <div class="project-featured-label">⭐ Destacado</div>
+          <div class="project-top">
+            <span class="project-folder">📁</span>
+            <div class="project-links">
+              <a href="#" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="#" target="_blank" title="Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">E-Commerce Platform</h3>
+          <p class="project-desc">
+            Plataforma de comercio electrónico completa con carrito, pagos con Stripe,
+            panel de administración y analytics en tiempo real.
+          </p>
+          <div class="project-tech">
+            <span>Next.js</span><span>TypeScript</span><span>Stripe</span><span>PostgreSQL</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-top">
+            <span class="project-folder">📁</span>
+            <div class="project-links">
+              <a href="#" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4 11.5 11.5 0 0 1 3 .4c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="#" target="_blank" title="Demo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">API Weather Bot</h3>
+          <p class="project-desc">
+            Bot de Telegram que usa ML para predecir el clima con datos de OpenWeather.
+            Envía alertas personalizadas según las preferencias del usuario.
+          </p>
+          <div class="project-tech">
+            <span>Python</span><span>TensorFlow</span><span>Telegram API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--              CONTACTO                  -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <section id="contacto" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// 06</span>
+        <h2 class="section-title">Contacto</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-text reveal">
+          <h3>¡Hablemos!</h3>
+          <p>
+            Estoy abierto a nuevas oportunidades, colaboraciones y proyectos
+            interesantes. Mi gato y yo estamos disponibles 🐾
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <a href="mailto:tu@email.com">tu@email.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>Colombia 🇨🇴</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">💼</span>
+              <a href="https://linkedin.com/in/tu-usuario" target="_blank">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="¡Cuéntame sobre tu proyecto!" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Enviar mensaje 🐱</span>
+          </button>
+          <div class="form-notice">
+            💡 Este formulario abre tu cliente de correo. Para una versión con backend, considera usar <a href="https://formspree.io" target="_blank">Formspree</a>.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗ -->
+  <!--               FOOTER                   -->
+  <!-- ╚══════════════════════════════════════╝ -->
+  <footer>
+    <div class="footer-cat">
+      <canvas id="cat-footer" width="120" height="80"></canvas>
+    </div>
+    <p>Diseñado y desarrollado con ❤️ y ☕ por <strong>Tu Nombre</strong></p>
+    <p class="footer-sub">🐾 Con supervisión felina garantizada 🐾</p>
+    <p class="footer-copy">&copy; 2026 – Hecho con HTML, CSS y mucho JavaScript</p>
+  </footer>
+
+  <!-- CAT WALKING OVERLAY (sigue el scroll) -->
+  <div id="walking-cat" class="walking-cat">
+    <canvas id="cat-walk" width="100" height="80"></canvas>
+  </div>
+
+  <script src="cat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
