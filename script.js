@@ -76,12 +76,12 @@ navLinks.querySelectorAll('a').forEach(link => {
    ════════════════════════════════════════════════ */
 const typedEl = document.getElementById('typed-text');
 const phrases = [
-  'Full Stack Developer 💻',
-  'React & Node.js Enthusiast ⚛️',
-  'Problem Solver 🧩',
-  'Coffee Addict ☕',
-  'Cat Person 🐱',
-  'UI/UX Craftsman 🎨',
+  'Ingeniero de Sistemas 💻',
+  'Backend Developer ⚙️',
+  'Machine Learning Engineer 🤖',
+  'ETL & Data Pipelines 📊',
+  'Automatización con Sensores �',
+  'Cat Supervisor Employee 🐱',
 ];
 
 let phraseIdx = 0;
@@ -233,7 +233,7 @@ if (contactForm) {
 
     const subject = encodeURIComponent(`Mensaje desde tu portafolio – ${nombre}`);
     const body    = encodeURIComponent(`Hola,\n\nMi nombre es ${nombre}.\n\n${mensaje}\n\n---\nRespóndeme a: ${email}`);
-    window.open(`mailto:tu@email.com?subject=${subject}&body=${body}`, '_blank');
+    window.open(`mailto:wasc0144@gmail.com?subject=${subject}&body=${body}`, '_blank');
     showToast('🐱 ¡Listo! Abriendo tu cliente de correo…', 'success');
     contactForm.reset();
   });
