@@ -405,6 +405,35 @@ ul { list-style: none; }
 }
 @keyframes blink-dot { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
+/* ── Easter Egg animations ────────────────────────── */
+@keyframes meow-pop {
+  0%   { transform: translateX(-50%) scale(0.2); opacity: 0; }
+  60%  { transform: translateX(-50%) scale(1.15); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+@keyframes gatchi-shake {
+  0%,100% { transform: translate(-50%,-50%); }
+  25%      { transform: translate(-52%,-50%); }
+  75%      { transform: translate(-48%,-50%); }
+}
+/* Hint de doble-clic en section-title */
+.section-title { cursor: pointer; }
+.section-title::after {
+  content: '';
+  display: block;
+  font-family: var(--font-px);
+  font-size: 0.3rem;
+  color: var(--violet);
+  opacity: 0;
+  transition: opacity 0.3s;
+  letter-spacing: 1px;
+  margin-top: 0.2rem;
+}
+.section-title:hover::after {
+  content: '// dbl-click → matrix mode';
+  opacity: 0.5;
+}
+
 /* Partículas */
 .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .particle {

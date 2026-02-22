@@ -360,9 +360,17 @@ console.log(`%c
  /\\_____/\\
 (  o   o  )   ¡Hola! 🐾
  =( Y )=      Bienvenido al código fuente.
-  )   (       Si estás leyendo esto, 
- (_)-(_)      ¡me encanta tu curiosidad!
+ )   (        Si estás leyendo esto,
+(_)-(_)       ¡me encanta tu curiosidad!
 `, 'color: #a855f7; font-family: monospace; font-size: 12px;');
-console.log('%c🐱 Portfolio de Tu Nombre – %c¡Hecho con amor y JavaScript!',
+console.log('%c🐱 Portfolio de Walter Salazar – %c¡Hecho con amor y JavaScript!',
   'color: #7c3aed; font-weight: bold;',
   'color: #06b6d4;');
+console.log('%c🐾 Easter eggs disponibles:',
+  'color: #facc15; font-weight: bold;');
+console.log('%c  🌧️  Clic en "OPEN TO WORK"  → lluvia de gatos',    'color:#00e5ff');
+console.log('%c  🛒  Botón 🛒 (inf. izq.)     → gato en cochecito', 'color:#00e5ff');
+console.log('%c  ⌨️  Escribe: meow             → gato veloz x3',     'color:#00e5ff');
+console.log('%c  👆  5 clics rápidos al gato   → meow.exe',          'color:#00e5ff');
+console.log('%c  🖱️  Doble clic en un título   → cat matrix mode',   'color:#00e5ff');
+console.log('%c  🐱  Click sostenido al gato   → mini-juego Gatchi', 'color:#00e5ff');

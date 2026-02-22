@@ -816,7 +816,6 @@ function spawnCatCart() {
   // Evitar duplicados
   const existing = document.getElementById('cat-cart-overlay');
   if (existing) return;
-
   const PX      = 4;
   const CAT_W   = 16 * PX;
   const CAT_H   = 16 * PX;
@@ -878,4 +877,400 @@ function spawnCatCart() {
     }
   }
   requestAnimationFrame(animCart);
+}
+
+/* ══════════════════════════════════════════════════
+   EASTER EGG 3 — ESCRIBIR "meow"
+   Teclea m-e-o-w en cualquier momento → gato corre
+   ══════════════════════════════════════════════════ */
+(function initMeowDetect() {
+  const SEQ = ['m', 'e', 'o', 'w'];
+  let idx = 0;
+  document.addEventListener('keydown', e => {
+    // ignorar si está en un input/textarea
+    if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+    if (e.key.toLowerCase() === SEQ[idx]) {
+      idx++;
+      if (idx === SEQ.length) {
+        idx = 0;
+        triggerMeowRun();
+      }
+    } else {
+      idx = e.key.toLowerCase() === SEQ[0] ? 1 : 0;
+    }
+  });
+})();
+
+function triggerMeowRun() {
+  const PX = 4;
+  const W  = 16 * PX;
+  const H  = 16 * PX;
+
+  // Toast pixel art
+  const toast = document.createElement('div');
+  toast.textContent = '🐱 meow.exe activado';
+  toast.style.cssText = `
+    position: fixed; top: 5rem; left: 50%; transform: translateX(-50%);
+    background: #080c10; border: 2px solid #00e5ff;
+    box-shadow: 4px 4px 0 #7c3aed;
+    color: #00e5ff; font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem; padding: 0.6rem 1.2rem;
+    z-index: 99999; pointer-events: none;
+    animation: meow-pop 0.2s steps(2) forwards;
+  `;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2200);
+
+  // 3 pasadas del gato corriendo
+  let pass = 0;
+  const totalPasses = 3;
+
+  function doPass() {
+    if (pass >= totalPasses) return;
+    pass++;
+
+    const cvs = document.createElement('canvas');
+    cvs.width  = W;
+    cvs.height = H;
+    cvs.style.cssText = `
+      position: fixed; top: ${30 + pass * 18}%;
+      image-rendering: pixelated; pointer-events: none; z-index: 99998;
+    `;
+    document.body.appendChild(cvs);
+
+    const leftToRight = pass % 2 === 1;
+    const cat = new Cat(cvs, { px: PX, state: 'run', speed: 2.5, flip: !leftToRight, glow: true });
+    cat.start();
+
+    let x = leftToRight ? -(W + 10) : window.innerWidth + 10;
+    const spd = leftToRight ? 7 : -7;
+
+    function step() {
+      x += spd;
+      cvs.style.left = x + 'px';
+      const done = leftToRight ? x > window.innerWidth + 20 : x < -(W + 20);
+      if (!done) {
+        requestAnimationFrame(step);
+      } else {
+        cat.stop();
+        cvs.remove();
+        setTimeout(doPass, 180);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  doPass();
+}
+
+/* ══════════════════════════════════════════════════
+   EASTER EGG 4 — CLICK STREAK (5 clics al gato hero)
+   Burbuja de diálogo pixel art + combo animaciones
+   ══════════════════════════════════════════════════ */
+(function initClickStreak() {
+  const heroCanvas = document.getElementById('cat-canvas');
+  if (!heroCanvas) return;
+
+  let clicks = 0;
+  let timer  = null;
+
+  heroCanvas.style.cursor = 'pointer';
+
+  heroCanvas.addEventListener('click', () => {
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(() => { clicks = 0; }, 1200);
+
+    if (clicks >= 5) {
+      clicks = 0;
+      triggerClickStreak();
+    }
+  });
+})();
+
+function triggerClickStreak() {
+  const heroCanvas = document.getElementById('cat-canvas');
+  if (!heroCanvas || !window._heroCat) return;
+
+  // Burbuja de diálogo pixel art
+  const rect    = heroCanvas.getBoundingClientRect();
+  const bubble  = document.createElement('div');
+  const messages = ['meow.exe', '¡PARA YA!', 'OVERFLOW!', 'stack: paws', 'git push paws'];
+  bubble.textContent = messages[Math.floor(Math.random() * messages.length)];
+  bubble.style.cssText = `
+    position: fixed;
+    left: ${rect.left + rect.width * 0.55}px;
+    top: ${rect.top + rect.height * 0.1}px;
+    background: #080c10;
+    border: 2px solid #00ffcc;
+    box-shadow: 3px 3px 0 #9b5de5;
+    color: #00ffcc;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.4rem;
+    padding: 0.4rem 0.7rem;
+    z-index: 99999;
+    pointer-events: none;
+    white-space: nowrap;
+  `;
+  // Colita de la burbuja
+  bubble.insertAdjacentHTML('beforeend',
+    `<span style="position:absolute;bottom:-8px;left:12px;
+      width:0;height:0;border-left:6px solid transparent;
+      border-right:6px solid transparent;
+      border-top:8px solid #00ffcc;"></span>`
+  );
+  document.body.appendChild(bubble);
+
+  // Combo animaciones
+  const cat  = window._heroCat;
+  const seq  = ['jump', 'run', 'wave', 'jump', 'idle'];
+  let si = 0;
+  const comboTimer = setInterval(() => {
+    cat.setState(seq[si++]);
+    if (si >= seq.length) clearInterval(comboTimer);
+  }, 500);
+
+  setTimeout(() => bubble.remove(), 2500);
+}
+
+/* ══════════════════════════════════════════════════
+   EASTER EGG 5 — MODO MATRIX DE GATOS
+   Doble clic en cualquier .section-title
+   ══════════════════════════════════════════════════ */
+(function initCatMatrix() {
+  document.addEventListener('dblclick', e => {
+    if (e.target.closest('.section-title')) triggerCatMatrix();
+  });
+})();
+
+function triggerCatMatrix() {
+  const existing = document.getElementById('cat-matrix-overlay');
+  if (existing) return;
+
+  const overlay = document.createElement('canvas');
+  overlay.id    = 'cat-matrix-overlay';
+  const vw = window.innerWidth, vh = window.innerHeight;
+  overlay.width  = vw;
+  overlay.height = vh;
+  overlay.style.cssText = `
+    position: fixed; inset: 0; z-index: 99990;
+    pointer-events: none; image-rendering: pixelated;
+  `;
+  document.body.appendChild(overlay);
+
+  const ctx  = overlay.getContext('2d');
+  const CHARS = ['🐱','ω','ฅ','≽','=^.^=','nya','meow','∫','Σ','∇','⊂','≡'];
+  const COL_W = 20;
+  const cols  = Math.floor(vw / COL_W);
+  const drops = Array.from({ length: cols }, () => Math.random() * -50);
+
+  const COLORS = ['#00e5ff', '#9b5de5', '#00ffcc', '#facc15'];
+  let frame = 0;
+  let raf;
+
+  function draw() {
+    frame++;
+    // Fade trail
+    ctx.fillStyle = 'rgba(8,12,16,0.18)';
+    ctx.fillRect(0, 0, vw, vh);
+
+    ctx.font = `bold ${COL_W - 2}px monospace`;
+
+    drops.forEach((y, i) => {
+      const ch    = CHARS[Math.floor(Math.random() * CHARS.length)];
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      ctx.fillStyle = color;
+      ctx.globalAlpha = 0.85 + Math.random() * 0.15;
+      ctx.fillText(ch, i * COL_W, y * COL_W);
+
+      // Head bright
+      ctx.fillStyle = '#ffffff';
+      ctx.globalAlpha = 0.95;
+      ctx.fillText(ch, i * COL_W, y * COL_W);
+
+      drops[i] += 0.6 + Math.random() * 0.4;
+      if (drops[i] * COL_W > vh && Math.random() > 0.975) drops[i] = 0;
+    });
+
+    ctx.globalAlpha = 1;
+    raf = requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Termina solo a los 5s
+  setTimeout(() => {
+    cancelAnimationFrame(raf);
+    // Fade out
+    let alpha = 1;
+    function fadeOut() {
+      alpha -= 0.05;
+      overlay.style.opacity = alpha;
+      if (alpha > 0) requestAnimationFrame(fadeOut);
+      else overlay.remove();
+    }
+    fadeOut();
+  }, 5000);
+}
+
+/* ══════════════════════════════════════════════════
+   EASTER EGG 6 — MINI-JUEGO GATCHI (Tamagotchi)
+   Click prolongado (1 segundo) en el gato hero
+   ══════════════════════════════════════════════════ */
+(function initGatchi() {
+  const heroCanvas = document.getElementById('cat-canvas');
+  if (!heroCanvas) return;
+
+  let holdTimer = null;
+
+  heroCanvas.addEventListener('mousedown', () => {
+    holdTimer = setTimeout(() => openGatchi(), 1000);
+  });
+  heroCanvas.addEventListener('mouseup',   () => clearTimeout(holdTimer));
+  heroCanvas.addEventListener('mouseleave',() => clearTimeout(holdTimer));
+
+  // Touch
+  heroCanvas.addEventListener('touchstart', () => {
+    holdTimer = setTimeout(() => openGatchi(), 1000);
+  }, { passive: true });
+  heroCanvas.addEventListener('touchend',   () => clearTimeout(holdTimer));
+})();
+
+function openGatchi() {
+  if (document.getElementById('gatchi-window')) return;
+
+  const win = document.createElement('div');
+  win.id = 'gatchi-window';
+  win.style.cssText = `
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #080c10;
+    border: 3px solid #00e5ff;
+    box-shadow: 6px 6px 0 #7c3aed, 0 0 40px rgba(0,229,255,0.15);
+    padding: 1.5rem;
+    z-index: 99995;
+    min-width: 280px;
+    font-family: 'Press Start 2P', monospace;
+    color: #00e5ff;
+    text-align: center;
+  `;
+
+  // Estado Gatchi
+  const state = { hunger: 80, happy: 70, energy: 90 };
+  const catState = { hunger: 'idle', happy: 'wave', energy: 'sleep' };
+
+  win.innerHTML = `
+    <div style="font-size:0.5rem;letter-spacing:2px;margin-bottom:1rem;color:#9b5de5">
+      // GATCHI_v1.0
+    </div>
+    <canvas id="gatchi-cat" width="112" height="112"
+      style="image-rendering:pixelated;display:block;margin:0 auto 1rem"></canvas>
+    <div id="gatchi-stats" style="font-size:0.35rem;text-align:left;line-height:2;margin-bottom:1rem"></div>
+    <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem">
+      <button class="gatchi-btn" data-action="feed"   style="${btnStyle('#facc15')}">🍣 FEED</button>
+      <button class="gatchi-btn" data-action="play"   style="${btnStyle('#00e5ff')}">🎮 PLAY</button>
+      <button class="gatchi-btn" data-action="sleep"  style="${btnStyle('#9b5de5')}">💤 SLEEP</button>
+      <button class="gatchi-btn" data-action="pet"    style="${btnStyle('#ff6eb4')}">🐾 PET</button>
+    </div>
+    <button id="gatchi-close" style="${btnStyle('#ff4466')};width:100%">[ CERRAR ]</button>
+  `;
+
+  function btnStyle(col) {
+    return `background:#080c10;border:2px solid ${col};box-shadow:2px 2px 0 ${col};
+            color:${col};font-family:'Press Start 2P',monospace;font-size:0.35rem;
+            padding:0.4rem 0.6rem;cursor:pointer;border-radius:0;`;
+  }
+
+  document.body.appendChild(win);
+
+  // Iniciar gato dentro de la ventana
+  const gc = document.getElementById('gatchi-cat');
+  const gatchiCat = new Cat(gc, { px: 7, state: 'sit', glow: true });
+  gatchiCat.start();
+
+  function renderStats() {
+    const bar = (v) => {
+      const filled = Math.round(v / 10);
+      return '█'.repeat(filled) + '░'.repeat(10 - filled) + ` ${v}%`;
+    };
+    document.getElementById('gatchi-stats').innerHTML =
+      `🍣 HUNGER &nbsp;${bar(state.hunger)}<br>
+       😸 HAPPY &nbsp;&nbsp;${bar(state.happy)}<br>
+       ⚡ ENERGY &nbsp;${bar(state.energy)}`;
+  }
+  renderStats();
+
+  // Botones acción
+  win.querySelectorAll('.gatchi-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.action;
+      if (action === 'feed') {
+        state.hunger  = Math.min(100, state.hunger + 20);
+        state.energy  = Math.min(100, state.energy + 5);
+        gatchiCat.setState('jump');
+        setTimeout(() => gatchiCat.setState('sit'), 1200);
+        showGatchiMsg('¡Nam nam! +20 🍣');
+      } else if (action === 'play') {
+        state.happy   = Math.min(100, state.happy + 25);
+        state.hunger  = Math.max(0, state.hunger - 10);
+        state.energy  = Math.max(0, state.energy - 15);
+        gatchiCat.setState('run');
+        setTimeout(() => gatchiCat.setState('wave'), 900);
+        setTimeout(() => gatchiCat.setState('sit'), 1800);
+        showGatchiMsg('¡Weee! +25 😸');
+      } else if (action === 'sleep') {
+        state.energy  = Math.min(100, state.energy + 30);
+        state.hunger  = Math.max(0, state.hunger - 5);
+        gatchiCat.setState('sleep');
+        setTimeout(() => gatchiCat.setState('sit'), 2500);
+        showGatchiMsg('Zzz... +30 ⚡');
+      } else if (action === 'pet') {
+        state.happy   = Math.min(100, state.happy + 15);
+        gatchiCat.setState('wave');
+        setTimeout(() => gatchiCat.setState('sit'), 1200);
+        showGatchiMsg('Purr purr~ +15 🐾');
+      }
+      renderStats();
+    });
+  });
+
+  function showGatchiMsg(msg) {
+    let el = win.querySelector('#gatchi-msg');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'gatchi-msg';
+      el.style.cssText = `font-size:0.35rem;color:#00ffcc;height:1.2rem;
+        margin-bottom:0.5rem;animation:none`;
+      win.querySelector('#gatchi-stats').after(el);
+    }
+    el.textContent = msg;
+    el.style.opacity = '1';
+    clearTimeout(el._t);
+    el._t = setTimeout(() => { el.textContent = ''; }, 2000);
+  }
+
+  // Cerrar
+  document.getElementById('gatchi-close').addEventListener('click', () => {
+    gatchiCat.stop();
+    win.remove();
+  });
+
+  // Drag para mover la ventana
+  let dragging = false, dx = 0, dy = 0;
+  win.addEventListener('mousedown', e => {
+    if (e.target.tagName === 'BUTTON') return;
+    dragging = true;
+    const r = win.getBoundingClientRect();
+    dx = e.clientX - r.left;
+    dy = e.clientY - r.top;
+    win.style.transform = 'none';
+    win.style.cursor = 'grabbing';
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    win.style.left = (e.clientX - dx) + 'px';
+    win.style.top  = (e.clientY - dy) + 'px';
+  });
+  document.addEventListener('mouseup', () => {
+    dragging = false;
+    win.style.cursor = 'default';
+  });
 }
