@@ -89,6 +89,28 @@ ul { list-style: none; }
 }
 
 /* ════════════════════════════════════════════════════
+   PLANO 3D — perspectiva desde la izquierda
+   ════════════════════════════════════════════════════ */
+#page-plane {
+  /* Perspectiva embebida: el punto de fuga se calcula desde
+     transform-origin (esquina superior-izquierda).
+     rotateY negativo = lado izquierdo más cercano al espectador,
+     lado derecho retrocede en profundidad → cámara a la izquierda. */
+  transform-origin: left top;
+  transform: perspective(1400px) rotateY(-32deg);
+  will-change: transform;
+  /* El scroll del body permanece inalterado;
+     solo el plano visual está inclinado. */
+}
+
+/* Sin efecto en pantallas pequeñas (legibilidad) */
+@media (max-width: 900px) {
+  #page-plane {
+    transform: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════
    CURSOR PIXEL
    ════════════════════════════════════════════════════ */
 .cursor {
